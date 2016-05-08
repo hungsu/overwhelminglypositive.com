@@ -1,0 +1,17 @@
+{
+  "name": "overwhelminglypositive.com",
+  "version": "0.0.1",
+  "description": "Mailing list for people interested in top rated games on Steam",
+  "main": "app.js",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "nightmare": "^2.3.4",
+    "request": "^2.72.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hung-Su Nguyen",
+  "license": "ISC"
+}
