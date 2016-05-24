@@ -9,7 +9,7 @@
 </ul>
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 	ul {
 		background: blue;
 	}

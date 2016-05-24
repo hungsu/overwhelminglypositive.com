@@ -1,6 +1,11 @@
 <template>
 <div class="app">
 	<games-list></games-list>
+	<ul>
+		<li>
+			This will be unstyled
+		</li>
+	</ul>
 </div>
 </template>
 
