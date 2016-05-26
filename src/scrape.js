@@ -8,7 +8,7 @@ var steamGames = []
 function getGamesFromPage(pageNumber){
 	return new Nightmare({ show: true })
 		.goto('http://store.steampowered.com/search/#sort_by=Reviews_DESC&page='+pageNumber)
-		.wait(600) // Wait for Steam's javascript to fetch and render results
+		.wait(650) // Wait for Steam's javascript to fetch and render results
 		.evaluate(
 			function () {
 				// Now that we're on the page with the right results, build an array
@@ -52,9 +52,26 @@ function getGamesFromPage(pageNumber){
 		});
 }
 
+function removeVeryPositive(games){
+	var hasVeryPositive = true;
+	var lastGame = games.length-1
+	while (hasVeryPositive) {
+		if (games[lastGame].reviewConsensus != 'Overwhelmingly Positive') {
+			lastGame--
+		} else {
+			hasVeryPositive = false
+		}
+	}
+	return games.slice(0,lastGame+1);
+}
+
 getGamesFromPage(1).then(function(){
 	console.log(steamGames)
-	console.log(steamGames.length + " were found")
+	console.log(steamGames.length + " games were found")
+
+	var OPGames = removeVeryPositive(steamGames)
+	console.log(OPGames);
+	console.log(OPGames.length + " are OP")
+	//Once array is built, write that to file
 })
 
-//Once array is built, write that to file
